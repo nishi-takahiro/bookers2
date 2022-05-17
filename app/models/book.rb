@@ -1,6 +1,9 @@
 class Book < ApplicationRecord
   belongs_to :user
     
-def top
-end
+  def top
+  end
+  
+  
+  
 end
