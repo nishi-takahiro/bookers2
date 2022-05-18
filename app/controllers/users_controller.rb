@@ -8,7 +8,7 @@ class UsersController < ApplicationController
      @user = User.new(user_params)
      @user.user_id = current_user.id
      @user.save
-     redirect_to user_path
+     redirect_to user_path(current_user.id)
   end
 
   def index
