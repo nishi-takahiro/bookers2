@@ -1,7 +1,6 @@
 
-<main>
   
-    <div class = 'container px-5 px-sm-0'>
+ <div class = 'container px-5 px-sm-0'>
       <div class = 'row'>
           <div class = 'col-md-3'>
               
@@ -21,7 +20,10 @@
                        
                       <tr>
                          
-                        <td> <%= image_tag "default-image.jpg" %></td>
+                        <td> 
+                        <%= image_tag "default-image.jpg" %>
+                        <%= link_to @book.user.name,  user_path(current_user.id) %>
+                        </td>
                         <td><%= @book.title %></td>
                         <td><%= @book.opinion %></td>
                          
