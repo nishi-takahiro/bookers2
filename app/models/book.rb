@@ -1,9 +1,8 @@
 class Book < ApplicationRecord
   belongs_to :user
     
-  def top
-  end
-  
-  
+    validates :title, presence: true
+    validates :opinion, presence: true, length: 0..200
+    
   
 end
