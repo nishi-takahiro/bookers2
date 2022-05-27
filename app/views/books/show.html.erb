@@ -25,11 +25,16 @@
                         <%= link_to @book.user.name,  user_path(current_user.id) %>
                         </td>
                         <td><%= @book.title %></td>
-                        <td><%= @book.opinion %></td>
+                        <td><%= @book.body %></td>
                          
                         <td colspan = "3">
-                          <%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-sm btn-success" %>
-                          <%= link_to"Destroy", book_path(@book.id), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に消しますか?" %>
+                          <% if @book.user == current_user %>
+                            <%= link_to "Edit", edit_book_path(@book.id), class: "btn btn-sm btn-success" %>
+                          <% end %>
+                          
+                          <% if @book.user == current_user %>
+                            <%= link_to"Destroy", book_path(@book.id), class: "btn btn-sm btn-danger", method: :delete, "data-confirm" => "本当に消しますか?" %>
+                          <% end %>
                         </td>
                       </tr>
                   </table>
