@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'home/about' => 'homes#about', as: 'about'
   resources :users, only: [:show, :index, :edit, :update, :creat]
-  resources :books
+  resources :books, only: [:create, :edit, :index, :show, :update, :destroy]
   post 'edit_user_path' => 'users#index'
 end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -4,7 +4,7 @@
       <div class = 'row'>
           <div class = 'col-md-3'>
               
-             <%= render "list", book: @book_new, user: @user %>
+             <%= render "list", book: @book_new, user: @book.user %>
           </div>
           <div class = 'col-md-8 offset-md-1'>
                   <h2>Book detail</h2>
@@ -20,9 +20,11 @@
                        
                       <tr>
                          
-                        <td> 
-                        <%= image_tag "default-image.jpg" %>
-                        <%= link_to @book.user.name,  user_path(current_user.id) %>
+                        <td>
+                           <%= link_to user_path(@book.user_id) do %> 
+                           <%= image_tag @book.user.get_profile_image(100,100), fallback: "default-image.jpg" %>
+                           <br><%= @book.user.name %>
+                           <% end %>
                         </td>
                         <td><%= @book.title %></td>
                         <td><%= @book.body %></td>
